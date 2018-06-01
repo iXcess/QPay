@@ -1,4 +1,4 @@
-# qpay
+# QPay
 
 Plugin installed :
 1. Chart.js - ref : http://www.chartjs.org/
