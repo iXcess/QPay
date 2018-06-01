@@ -1,0 +1,27 @@
+page-splitbill {
+
+	#roundAmount {
+		font-size: 250%;
+		color: #83CBB7;
+		padding: 5%;
+	}
+
+	#totalAmount {
+		float: right;
+	}
+
+	.title {
+    	letter-spacing: 3px;
+	}
+
+	.highlighted {
+		font-weight: 550;
+		letter-spacing: 3px;
+
+	}
+
+	.day {
+		font-size: 70%;
+		letter-spacing: 3px;
+	}
+}

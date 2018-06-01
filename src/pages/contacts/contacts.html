@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{pageTitle}}</ion-title>
+    
+    <ion-buttons end *ngIf="splitBillView">
+    	<button ion-button end (click)="sendPaymentRequest()">
+    		<ion-icon name="calculator"></ion-icon>
+    	</button>
+    </ion-buttons>
+
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-searchbar (keyup)="onKeyUp($event)" *ngIf="contactsView"></ion-searchbar>
+
+	<ion-list *ngIf="splitBillView">
+
+		<ion-item style="border-bottom: solid black 1px;">
+			<p>Splitting with: </p>
+			<div  (click)="select(contact)" class="frame" *ngFor="let contact of selected">  
+	   	    	<img class="avatar" [src]="contact.image">
+	   	    	<p>{{contact.name.split(" ")[0]}}</p>
+	   	 	</div>
+		</ion-item>
+
+	    <ion-item class="contacts" *ngFor="let contact of contactsFound">
+
+	   	 	<ion-avatar *ngIf="contact.image" item-start>  
+	   	    	<img [src]="contact.image">
+	   	 	</ion-avatar>
+	     	<ion-label (click)="select(contact)">{{contact.name}}</ion-label>
+	     	
+	    </ion-item>
+
+	</ion-list>
+
+	<ion-list *ngIf="contactsView">
+
+		<ion-item  class="contacts" (click)="displayInfo()" *ngFor="let contact of contactsFound">
+			<ion-avatar *ngIf="contact.image" item-start>  
+			   <img [src]="contact.image">
+			</ion-avatar>
+			<p>{{contact.name}}</p>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

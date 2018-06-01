@@ -1,0 +1,293 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      DEPOSIT / WITHDRAW
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding no-bounce class="background-color no-scroll">
+	<div class="screen vertical-center">
+		<div>
+			<h1 class="amount">RM {{amount | number:'1.2-2'}}</h1>
+
+			<!-- <ion-grid text-center>
+			  <ion-row>
+			    <ion-col icon-only (click)="nextOption()">
+			    	<ion-icon ios="ios-arrow-dropleft-circle" md="md-arrow-dropleft-circle"></ion-icon>
+			    </ion-col>
+			    <ion-col>{{currentOption}}</ion-col>
+			    <ion-col icon-only (click)="prevOption()">
+			    	<ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+			    </ion-col>
+			  </ion-row>
+			</ion-grid> -->
+
+			<div align="center" class="one-rec-option">
+				<span (click)="nextOption()"><|&nbsp;&nbsp;</span>
+				<span>{{currentOption}}</span> 
+				<span (click)="prevOption()">&nbsp;&nbsp;|></span>
+			</div>
+
+			<!-- Recurring Deposit Options -->
+			<div 
+				*ngIf="selectedOptions[0]" 
+				align="center" class="chip-btn-row">
+				<span 
+					[ngClass] = "{
+						'chip-btn-active': 						
+							recurringDepositOptions[0], 
+						'chip-btn': 
+							!recurringDepositOptions[0]
+					}"
+					(click)="updateDepositOption(0)">
+					Daily
+				</span>
+				<span> &nbsp; | &nbsp; </span>
+				<span 
+					[ngClass] = "{
+						'chip-btn-active':
+						 	recurringDepositOptions[1], 
+						'chip-btn': 
+							!recurringDepositOptions[1]
+					}"
+					(click)="updateDepositOption(1)">
+					Weekly
+				</span>
+				<span> &nbsp; | &nbsp; </span>
+				<span 
+					[ngClass] = "{
+						'chip-btn-active': 						
+							recurringDepositOptions[2], 
+					'chip-btn': 
+							!recurringDepositOptions[2]
+					}"
+					(click)="updateDepositOption(2)">
+					Monthly
+				</span>
+			</div>
+			
+			<!-- One Off Options -->
+			<div 
+				*ngIf="selectedOptions[1]" 
+				align="center" class="chip-btn-row">
+				<span 
+					[ngClass] = "{
+						'chip-btn-active': 						
+							oneOffOptions[0], 
+						'chip-btn': 
+							!oneOffOptions[0]
+					}"
+					(click)="updateOneOff(0)">
+					Desposit 
+				</span>
+				<span> &nbsp; | &nbsp; </span>
+				<span 
+					[ngClass] = "{
+						'chip-btn-active':
+						 	oneOffOptions[1], 
+						'chip-btn': 
+							!oneOffOptions[1]
+					}"
+					(click)="updateOneOff(1)">
+					Withdraw
+				</span>
+			</div>
+
+			<!-- <ion-item *ngIf="selectedOptions[0]">
+				<ion-grid text-center>
+				  <ion-row>
+				    <ion-col [style.background-color]="recurringDepositOptions[0] ? 'grey' : 'white'" (click)="updateDepositOption(0)">Daily</ion-col>
+				    <ion-col [style.background-color]="recurringDepositOptions[1] ? 'grey' : 'white'" (click)="updateDepositOption(1)">Weekly</ion-col>
+				    <ion-col [style.background-color]="recurringDepositOptions[2] ? 'grey' : 'white'" (click)="updateDepositOption(2)">Monthly</ion-col>
+				  </ion-row>
+				</ion-grid>
+			</ion-item> -->
+			<!-- <ion-item *ngIf="selectedOptions[1]">
+				<ion-grid text-center>
+				  <ion-row>
+				    <ion-col [style.background-color]="oneOffOptions[0] ? 'grey' : 'white'" (click)="updateOneOff(0)">
+				    	Deposit
+				    </ion-col>
+				    <ion-col [style.background-color]="oneOffOptions[1] ? 'grey' : 'white'" (click)="updateOneOff(1)">Withdraw</ion-col>
+				  </ion-row>
+				</ion-grid>
+			</ion-item> -->
+		</div>
+	</div>
+	
+	<ion-grid text-center class="number-pad">
+	  <ion-row>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(1)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[1],
+	    			 	'number-pad-btn-active': numPadActive[1]
+	    			 }"> 
+	    			1 
+	    		</div>
+	    	</div>  	
+	    </ion-col>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(2)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[2],
+	    			 	'number-pad-btn-active': numPadActive[2]
+	    			 }"> 
+	    			2 
+	    		</div>
+	    	</div> 
+	    </ion-col>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(3)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[3],
+	    			 	'number-pad-btn-active': numPadActive[3]
+	    			 }"> 
+	    			3 
+	    		</div>
+	    	</div>
+	    </ion-col>
+	  </ion-row>
+	  <ion-row>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(4)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[4],
+	    			 	'number-pad-btn-active': numPadActive[4]
+	    			 }"> 
+	    			4
+	    		</div>
+	    	</div>  	
+	    </ion-col>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(5)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[5],
+	    			 	'number-pad-btn-active': numPadActive[5]
+	    			 }"> 
+	    			5 
+	    		</div>
+	    	</div> 
+	    </ion-col>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(6)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[6],
+	    			 	'number-pad-btn-active': numPadActive[6]
+	    			 }"> 
+	    			6 
+	    		</div>
+	    	</div>
+	    </ion-col>
+	  </ion-row>
+	  <ion-row>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(7)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[7],
+	    			 	'number-pad-btn-active': numPadActive[7]
+	    			 }"> 
+	    			7 
+	    		</div>
+	    	</div>  	
+	    </ion-col>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(8)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[8],
+	    			 	'number-pad-btn-active': numPadActive[8]
+	    			 }"> 
+	    			8 
+	    		</div>
+	    	</div> 
+	    </ion-col>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(9)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[9],
+	    			 	'number-pad-btn-active': numPadActive[9]
+	    			 }"> 
+	    			9 
+	    		</div>
+	    	</div>
+	    </ion-col>
+	  </ion-row>
+	  <ion-row>
+	    <ion-col class="vertical-center">
+	    	<div align="center">
+	    		<div
+	    			(click)="pressed(10)"
+	    			[ngClass] = "{
+	    			 	'number-pad-enter': !numPadActive[10],
+	    			 	'number-pad-enter-active': numPadActive[10]
+	    			}"> 
+	    			ENTER 
+	    		</div>
+	    	</div>  	
+	    </ion-col>
+	    <ion-col>
+	    	<div align="center">
+	    		<div class="vertical-center"
+	    			 (click)="pressed(0)"
+	    			 [ngClass] = "{
+	    			 	'number-pad-btn': !numPadActive[0],
+	    			 	'number-pad-btn-active': numPadActive[0]
+	    			 }"> 
+	    			0 
+	    		</div>
+	    	</div> 
+	    </ion-col>
+	    <ion-col class="vertical-center">
+	    	<div align="center">
+	    		<div 
+	    			(click)="pressed(11)"
+	    			[ngClass] = "{
+	    			 	'number-pad-clear': !numPadActive[11],
+	    			 	'number-pad-clear-active': numPadActive[11]
+	    			}"> 
+	    			CLEAR 
+	    		</div>
+	    	</div>
+	    </ion-col>
+	  </ion-row>
+	 <!--  <ion-row>
+	    <ion-col (click)="pressed(4)">4</ion-col>
+	    <ion-col (click)="pressed(5)">5</ion-col>
+	    <ion-col (click)="pressed(6)">6</ion-col>
+	  </ion-row>
+	  <ion-row>
+	    <ion-col (click)="pressed(7)">7</ion-col>
+	    <ion-col (click)="pressed(8)">8</ion-col>
+	    <ion-col (click)="pressed(9)">9</ion-col>
+	  </ion-row>
+	  <ion-row>
+	    <ion-col (click)="pressed(10)">Enter</ion-col>
+	    <ion-col (click)="pressed(0)">0</ion-col>
+	    <ion-col (click)="pressed(11)">Clear</ion-col>
+	  </ion-row> -->
+	</ion-grid>
+
+</ion-content>
+

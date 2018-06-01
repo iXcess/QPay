@@ -1,0 +1,48 @@
+page-history {
+
+	#roundAmount {
+		font-size: 50px;
+		color: #83CBB7;
+	}
+
+	.title {
+    	letter-spacing: 3px;
+	}
+
+	.progress {
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-bottom: 60px;
+		margin-top: 60px;
+	}
+
+	.round-amt-list {
+		float: right;
+		color: #83CBB7;
+		font-weight: 600;
+	}
+	.round-list {
+		letter-spacing: 2px;
+	}
+
+	.day {
+		font-size: 10px;
+	}
+
+	#totalAmount {
+		float: right;
+	}
+
+	.highlighted {
+		font-weight: 400;
+		letter-spacing: 3px;
+		font-size: 13px;
+
+	}	
+
+	.scroller {
+		overflow-y: scroll;
+		height: 90vh;
+	}
+
+}

@@ -1,0 +1,59 @@
+<ion-content class="no-scroll">
+  <div padding>
+    <div text-center style="margin-top: 40px;">
+      <img class="img-circle" src="assets/imgs/qlogo.png">
+
+      <div class="logo-title">Q-Invest</div>
+
+    </div>
+    <form (submit)="doLogin()">
+      <ion-list inset>
+
+        <!-- <ion-item text-center>
+          <ion-label fixed style="width:50px"><ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>
+          <ion-input type="email" placeholder='sample@gmail.com'></ion-input>
+        </ion-item>
+
+        <ion-item text-center>
+          <ion-label fixed><ion-icon ios="ios-lock" md="md-lock"></ion-icon></ion-label>
+          <ion-input type="password" placeholder='●●●●●●●●'></ion-input>
+        </ion-item> -->
+        
+          <ion-card class="login-card">
+            <ion-card-content>
+              <ion-item>
+                <ion-input 
+                  type="email" name="email"
+                  placeholder="enter your e-mail address"
+                  [(ngModel)]="form.email">
+                                      
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input 
+                  type="password" name="password"
+                  placeholder="enter your password"
+                  [(ngModel)]="form.password">    
+                </ion-input>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+          <div text-center>
+            <button class="login-button" ion-button color="dark">Log In</button>
+          </div>  
+
+          <div text-center style="margin-top: 50px;">Forgot your password?</div>
+
+          <div text-center style="margin-top: 80px;">Don't have an account? <a (click)="doLogin()">Create one</a>.</div>
+   
+        <!-- <div padding>
+          <button ion-button color="primary" block>Login</button>
+          <button ion-button color="light" block (click)="signup()">Sign up</button>
+        </div> -->
+
+      </ion-list>
+    </form>
+    
+  </div>
+</ion-content>
+

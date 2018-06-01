@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>PROMOTION</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<!-- src="http://chicken.com.sg/wp-content/uploads/2017/11/Chicken-rice-banner.png" -->
+	<img class="banner-img" id="promotionImage" src="assets/imgs/{{bannerImg}}" />
+	<div align="center" class="logo-div">
+		<img class="logo-img" src='assets/imgs/{{logoImg}}'>
+	</div>
+
+	<div align="center">
+		<div class="promo-title">{{promotionName}}</div>
+		<div class="promo-amount">{{promotionAmount}}</div>
+		<div class="description">
+			{{promotionDescription}}
+		</div>
+		<div>
+			<button 
+				(click)="goToPayment()"
+				class="btn-green"
+				ion-button 
+				color="secondary"
+				large>
+					REDEEM
+			</button>
+		</div>
+		
+		<p class="TNC" (click)="presentAlert(TNCStr,TNC)">Terms &amp; Conditions</p>
+	</div>
+
+</ion-content>
+

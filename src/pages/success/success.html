@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Success</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <span class="topIcon" text-center><ion-icon style="margin-top: 10%;" name="checkmark-circle-outline"></ion-icon></span>
+	<h5 text-center style="color: #4CAF50">TRANSACTION SUCCESS</h5>
+
+  <div style="padding-left: 5%; padding-top: 20%;">
+	 <span class="btmIcon" (click)="returnHome()" style="border-right: black solid 1px; padding-right: 20%"><ion-icon name="home"></ion-icon></span>
+	 <span class="btmIcon" (click)="splitBill()" style="border-left: black solid 1px; padding-left: 20%"><ion-icon name="people"></ion-icon></span>
+  </div>
+
+    <div style="margin-top: -5%">
+     <span (click)="returnHome()" class="iconLabel1"><p>Return Home</p></span>
+     <span (click)="splitBill()" class="iconLabel2"><p>Split Bill<p></span>
+    </div>
+</ion-content>

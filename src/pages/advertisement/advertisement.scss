@@ -1,0 +1,37 @@
+page-advertisement {
+	.banner-img {
+		height: 200px;
+		width: 100%;
+	}
+	.logo-img {
+		width: 170px;
+		height: 55px;
+	}
+	.logo-div {
+		margin-top: -25px;
+	}
+	.description {
+		margin-left: 45px;
+    	margin-right: 45px;
+    	margin-bottom: 30px;
+	}
+
+	.promo-amount {
+		color: #C2C2C2;
+		letter-spacing: 2px;
+		font-size: 45px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.promo-title{
+		font-weight: 600;
+		font-size: 18px;
+		margin-top: 15px;
+	}
+
+	.TNC {
+		text-decoration: underline;
+		color: #9E9E9E;
+	}
+}
+

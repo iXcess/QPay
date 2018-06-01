@@ -1,0 +1,48 @@
+page-splitbillfinal {
+	.totalAmount {
+		padding: 18%;
+		font-size: 270%;
+
+	}
+
+	.name {
+		padding-left: 2%;
+		width: 40%;
+		position: absolute;
+		display: inline-block;
+		margin-top: -1%;
+
+	}
+
+	.avatar {
+		height: 25%;
+		width: 25%;
+		border-radius: 50%;
+	}
+
+	.inputField {
+		position: absolute;
+		left: 35%;
+		display: inline-block;
+		font-size: 125%;
+	}
+
+	.currencySign {
+		position: relative;
+		left: 65%;
+		display: inline-block;
+		font-size: 125%;
+	}	
+
+	.submit {
+		position: absolute;
+		height: 40px;
+		width: 40px;
+		right: 10%;
+		margin-top: 10%;
+		padding: 7px 0px 3px 10px;
+		font-size: 180%;
+		border: solid black 1px;
+		border-radius: 50%;
+	}
+}

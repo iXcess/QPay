@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      SCAN
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="scanner" (click)="scanCode(this.slides.getActiveIndex())"><ion-icon name="ios-qr-scanner-outline"></ion-icon></div>    
+
+  <h1 style="color:#000000;text-align:center;" >
+    ROUND-UPS
+  </h1>
+
+  <ion-slides style="border: black solid">
+    <ion-slide *ngFor="let round of roundUps, let i = index">
+      <p [innerHTML]="round" (click)="scanCode(i)"></p>
+    </ion-slide>
+  </ion-slides>
+  
+  <div text-center>
+    <ion-icon name="ios-help-circle-outline" style='font-size: 25px;'></ion-icon>  
+  </div>
+
+  <!-- For debugging
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>Scanned code = {{scannedCode}} </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="selfAmount">
+    <ion-card-content>Self paid amount = {{selfAmount}} </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="createdCode">
+    <ion-card-content>Created Code = {{createdCode}} </ion-card-content>
+  </ion-card>
+
+-->
+</ion-content>

@@ -1,0 +1,41 @@
+page-promotion {
+	
+	.grid-card-img {
+		height: 80px;
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: center;
+		// resize: vertical;
+		// overflow: auto;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.grid-card-title {
+		text-align: center;
+		font-weight: 600;
+		font-size: 21px;
+	}
+
+	.grid-card-discount {
+		text-align: center;
+	    border: 1px solid;
+	    border-radius: 50%;
+	    font-size: 14px;
+	    width: 45px;
+	    height: 45px;
+	    margin-bottom: 5px;
+	}
+
+	.banner-img {
+		height:180px;
+	}
+	.banner-logo {
+		width: 80px; 
+	    height: 60px;
+	    margin-top: -60px;
+	    z-index: 100;
+	}
+
+}
+

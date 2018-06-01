@@ -1,0 +1,155 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      PORTFOLIO
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-slides pager>
+
+		<ion-slide>
+			<div class="total-amt" id="total-amt-money"> 	
+				<!-- {{totalAmount | currency:'RM'}} -->
+			</div>
+			<div class="percent-change" id="change_amt">
+				
+			</div>
+			
+			<div align=center 
+				 class="graph-div vertical-center"> 
+				<ion-spinner *ngIf="loading" name="crescent" duration="400"></ion-spinner>
+				<div id="graph_div">
+					<canvas id='canvas_home' width='100%'></canvas>
+				</div>
+			</div>	
+
+			<ion-list class="portfolio-list">
+		  		<ion-item>
+		  			<p style="color: #009688">
+		  			<span>{{portfolioType[index].first.name}}</span>
+		  			<span class="right">{{portfolioType[index].first.percentage}}%</span>
+		  			</p>
+		  		</ion-item>
+		  		<ion-item>
+		  			<p style="color: #2196F3">
+		  			 	{{portfolioType[index].second.name}}			
+		  			<span class="right">{{portfolioType[index].second.percentage}}%</span>
+		  			</p>
+		  		</ion-item>
+		  		<ion-item>
+		  			<p style="color: #E91E63">
+		  				{{portfolioType[index].third.name}}
+		  			<span class="right">{{portfolioType[index].third.percentage}}%</span>
+		  			</p>
+		  		</ion-item>
+		  		<ion-item>
+		  			<p style="color: #673AB7">
+		  				{{portfolioType[index].forth.name}}
+		  			<span class="right">{{portfolioType[index].forth.percentage}}%</span>
+		  			</p>
+		  		</ion-item>
+		  		<!-- <ion-item>
+		  			<p style="color: #FF9800">
+		  				{{portfolioType[index].fifth.name}}
+		  			<span class="right">{{portfolioType[index].fifth.percentage}}%</span>
+		  			</p>
+		  		</ion-item> -->
+		  	</ion-list>
+		</ion-slide>
+
+		<ion-slide>
+			<ion-grid text-center>
+			  <ion-row>
+			    <ion-col icon-only (click)="prevAggresiveness()">
+			    	<ion-icon ios="ios-arrow-dropleft-circle" md="md-arrow-dropleft-circle"></ion-icon>
+			    </ion-col>
+			    <ion-col>{{currentAggresivenessName}}</ion-col>
+			    <ion-col icon-only (click)="nextAggresiveness()">
+			    	<ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+			    </ion-col>
+			  </ion-row>
+			  <ion-row class="container-row">
+			  	<ion-col class="container">
+			  		<span class="container-title">AGE</span> <br/><br/><br/><span id="projection_age">{{ projection.age}}</span>
+			  	</ion-col>
+			  	<ion-col class="container">
+			  		<span class="container-title">PROJECTED VALUE</span> <br/><br/><span id="projection_value">{{projection.value}}</span>
+			  	</ion-col>
+			  	<ion-col class="container">
+			  		<span class="container-title">MONTHLY</span> <br/><br/><br/><span id="monthly">{{projection.monthlyAmt}}</span>
+			  	</ion-col>
+			  </ion-row>
+			</ion-grid>
+		  	
+		  	
+		  	<!-- <div id="div1" style="height: 295px;">
+				<canvas id="canvas" width="100%" height="90%"></canvas>
+			</div> -->
+			<div align=center style="height: 295px;" 
+				 class="vertical-center"> 
+				<ion-spinner *ngIf="loading" name="crescent" duration="400"></ion-spinner>
+				<div id="projection_graph">
+					<canvas id="canvas" width="100%" height="90%"></canvas>
+				</div>	
+			</div>	
+
+		  	
+		</ion-slide>
+
+		<ion-slide>
+
+			<ion-grid text-center>
+			  <ion-row>
+			    <ion-col icon-only (click)="prevAggresiveness()">
+			    	<ion-icon ios="ios-arrow-dropleft-circle" md="md-arrow-dropleft-circle"></ion-icon>
+			    </ion-col>
+			    <ion-col>{{currentAggresivenessName}}</ion-col>
+			    <ion-col icon-only (click)="nextAggresiveness()">
+			    	<ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+			    </ion-col>
+			  </ion-row>
+			</ion-grid>
+		  	
+		  	<div align=center style="height: 164px;" 
+				 class="vertical-center" *ngIf="loading"> 
+				<!-- <ion-spinner name="crescent" duration="400"></ion-spinner> -->
+			</div>
+			<div id="pie_div" class="pie_div">
+				<canvas id="pie"></canvas>
+			</div>	
+				
+
+		  	<!-- <ion-item></ion-item> -->
+		  	<ion-list class="portfolio-list-pie">
+		  		<ion-item>
+			  		<p style="color: #009688">{{portfolioType[index].first.name}}<span style="float: right;">{{portfolioType[index].forth.percentage}}%</span></p>
+			  	</ion-item>
+			  	<ion-item>
+			  		<p style="color: #2196F3">{{portfolioType[index].second.name}}<span style="float: right">{{portfolioType[index].second.percentage}}%</span><p>
+			  	</ion-item>			
+			  	<ion-item>
+			  		<p style="color: #E91E63">{{portfolioType[index].third.name}}<span style="float: right">{{portfolioType[index].third.percentage}}%</span><p>
+			  	</ion-item>
+			  	<ion-item>
+			  		<p style="color: #673AB7">{{portfolioType[index].forth.name}}<span style="float: right">{{portfolioType[index].forth.percentage}}%</span><p>
+			  	</ion-item>
+			  	<!-- <ion-item>
+			  		<p style="color: #FF9800">{{portfolioType[index].fifth.name}}<span style="float: right">{{portfolioType[index].fifth.percentage}}%</span><p>
+			  	</ion-item> -->
+		  	</ion-list>
+		  	<!-- <span> CHANGE PREFERENCE </span> -->
+		  	<div>
+		  		<span class="preference">CHANGE PREFERENCE</span>
+		  	</div>
+
+		</ion-slide>
+
+	</ion-slides>
+
+</ion-content>

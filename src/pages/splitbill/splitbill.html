@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>SPLIT THE BILL</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<!-- Creates an individual day transaction to display -->
+	<ion-item>Tap the transaction you want to split</ion-item>
+	<ion-item *ngFor="let entity of entities">
+		<div>
+			<span class="highlighted">{{entity.date}}</span>
+			<span class="day">{{entity.day}}</span>
+
+			<!-- Creates individual item to display for that day -->
+			<div (click)="toggleInfo(transaction)" *ngFor="let transaction of entity.transactions">
+				<p id="roundAmount">+ RM {{transaction.amount | number:'1.2-2'}}</p>
+				<div style="padding-left: 5%">
+					<span class="highlighted">{{transaction.type}}</span>
+					<span class="highlighted" id="totalAmount">RM {{transaction.total | number:'1.2-2'}}</span>
+				</div>
+			</div>
+		</div>
+	</ion-item>
+</ion-content>

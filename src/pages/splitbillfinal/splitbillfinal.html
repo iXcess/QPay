@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>SPLIT THE BILL</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h1 text-center class="totalAmount">RM {{total | number:'1.2-2'}}</h1>
+
+	<div *ngFor="let item of contact, let i = index">
+	    <ion-label class="name">
+        <img class="avatar" [src]="item.image">{{item.name}}
+      </ion-label>
+	    <ion-label class="currencySign">RM</ion-label>
+	    <ion-input class="inputField" type="number" max="8" min="2" placeholder="{{equal | number:'1.2-2'}}" [(ngModel)]="splitValues[i]"></ion-input>
+	</div>
+	
+
+  <ion-icon class="submit" (click)="submit()" name="arrow-round-forward"></ion-icon>
+
+</ion-content>

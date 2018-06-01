@@ -1,0 +1,68 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// This is to remove the scrollbar in all pages
+::-webkit-scrollbar{
+display:none;
+}
+//align child element into the vertical center of current div
+.vertical-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	resize: vertical;
+}
+
+.background-color {
+	background: linear-gradient(to bottom, rgba(68, 65, 65, 0), rgba(68, 65, 65, 0.3));
+	//background-color: grey;	
+}
+
+.no-scroll .scroll-content {
+	overflow: hidden;
+}
+
+// change slider background to black
+.swiper-pagination-bullet-active {
+	background: #444141;
+}
+
+.right {
+	float: right;
+}
+
+.btn-green {
+	background-color: #83CBB7;
+	letter-spacing: 8px;
+	border-radius: 0px;
+	padding-left: 40px;
+	padding-right: 40px;
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url("../assets/fonts/Mark Simonson - Proxima Nova Alt Regular-webfont.ttf");
+}
+
+body, span, button, h1, h2, h3, h4, h5, h6, p, div, ion-item, ion-title, ion-card-title {
+	font-family: 'Proxima Nova';
+}
+
+ion-title {
+	letter-spacing: 1px;
+}

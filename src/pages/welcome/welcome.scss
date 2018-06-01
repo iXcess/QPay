@@ -1,0 +1,48 @@
+page-welcome {
+
+}
+//center input text and placeholder 
+.text-input-md {
+	text-align: center;
+	padding: 0;
+	width: calc(100% - 8px - 8px);
+}
+
+//fix the ionic bug where input underline in card disappear
+.card-md .item-md.item-block .item-inner {
+  border-bottom: 1px solid #dedede;
+}
+.card-md .item-md.item-block:not(.item-input):not(.item-select):not(.item-radio):not(.item-checkbox) .item-inner {
+  border: 0;
+}
+.card-md .item-md.item-block:last-child .item-inner {
+  margin-bottom: 1px;
+}
+
+.login-card {
+	padding-bottom: 12px;
+}
+
+.login-button {
+	border-radius: 5px 5px 5px 5px;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-top: -15px;
+}
+
+// .forgot-ps {
+// 	position: absolute;
+// 	bottom: 40px;
+// 	width: 100%;
+// }
+
+.img-circle {
+	border-radius: 50px 50px 50px 50px;
+	width: 120px;
+	height: 120px;
+}
+
+.logo-title {
+	font-size: 20px;
+	letter-spacing: 2px;
+}

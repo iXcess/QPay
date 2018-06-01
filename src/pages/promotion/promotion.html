@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>PROMOTION</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="background-color">
+	<form>
+    <ion-searchbar placeholder="" name=""></ion-searchbar>
+  </form>
+  <ion-card>
+      <img class="banner-img" src="assets/imgs/promotion_banner.jpg">
+      <div class="banner-logo" style="background-color: white;">
+        <img src="assets/imgs/four_seasons_logo.png">
+      </div>
+      
+  </ion-card>
+  <ion-grid>
+    <!-- <ion-row>
+      <ion-col col-6 on-click="goToAdvertisement()">
+        <ion-card>
+          <ion-card-title class="grid-card-title">
+            McDonald's
+          </ion-card-title>
+          <div class="grid-card-img vertical-center">
+            <img src="assets/imgs/mcdonald_logo.png">
+          </div>
+          <div align="center">
+            <div class="grid-card-discount vertical-center">
+              <div>20%</div>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 on-click="goToAdvertisement()">
+        <ion-card>
+          <ion-card-title class="grid-card-title">
+            TESCO
+          </ion-card-title>
+          <div class="grid-card-img vertical-center">
+            <img src="assets/imgs/tesco_logo.jpg">
+          </div>
+          <div align="center">
+            <div class="grid-card-discount vertical-center">
+              <div>5%</div>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 on-click="goToAdvertisement()">
+        <ion-card>
+          <ion-card-title class="grid-card-title">
+            ISETAN
+          </ion-card-title>
+          <div class="grid-card-img vertical-center">
+            <img src="assets/imgs/isetan_logo.png">
+          </div>
+          <div align="center">
+            <div class="grid-card-discount vertical-center">
+              <div>15%</div>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 on-click="goToAdvertisement()">
+        <ion-card>
+          <ion-card-title class="grid-card-title">
+            NIKE
+          </ion-card-title>
+          <div class="grid-card-img vertical-center">
+            <img src="assets/imgs/nike_logo.png">
+          </div>
+          <div align="center">
+            <div class="grid-card-discount vertical-center">
+              <div>10%</div>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row> -->
+    <ion-row *ngFor="let i of adList; let j = index;">
+      <ion-col col-6 on-click="goToAdvertisement(i[0].id, i[0].merchant)">
+        <ion-card>
+          <ion-card-title class="grid-card-title">
+            {{i[0].merchant}}
+          </ion-card-title>
+          <div class="grid-card-img vertical-center">
+            <img src="assets/imgs/{{i[0].logoimg}}">
+          </div>
+          <div align="center">
+            <div class="grid-card-discount vertical-center">
+              <div>{{i[0].discountValue}}</div>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 on-click="goToAdvertisement(i[0].id, i[1].merchant)">
+        <ion-card>
+          <ion-card-title class="grid-card-title">
+            {{i[1].merchant}}
+          </ion-card-title>
+          <div class="grid-card-img vertical-center">
+            <img src="assets/imgs/{{i[1].logoimg}}">
+          </div>
+          <div align="center">
+            <div class="grid-card-discount vertical-center">
+              <div>{{i[1].discountValue}}</div>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-card>
+    <ion-list>
+      <ion-item color="none">
+        <ion-avatar item-left>
+          <img src="assets/imgs/tKz4lQ7SUiYyaeCwkcO0_starbuck.jpg" />
+        </ion-avatar>
+        <h2>
+          Starbuck
+        </h2>
+      </ion-item>
+      <img src="assets/imgs/2iH7Gp9wRlyKq6O3An0A_starbuck_discount.jpg" />
+      <button ion-button color="assertive" block on-click="goToAdvertisement()">
+        Check It Out
+      </button>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+    </ion-list>
+  </ion-card>
+  <ion-card >
+    <ion-list>
+      <ion-item color="none">
+        <ion-avatar item-left>
+          <img src="assets/imgs/T9sB5Od4RXCNaNAf66c5_tealive.jpg" />
+        </ion-avatar>
+        <h2>
+          Tealive
+        </h2>
+      </ion-item>
+      <img src="assets/imgs/Rh20p77nTiiRDSYwAGo8_tealive_promotion.jpg" />
+      <button ion-button color="assertive" block on-click="goToAdvertisement()">
+        Check It Out
+      </button>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+    </ion-list>
+  </ion-card> -->
+</ion-content>

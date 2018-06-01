@@ -1,0 +1,48 @@
+page-home {
+	.chip-btn {
+		padding-left: 12px;
+	    padding-right: 12px;
+	    padding-top: 2px;
+	    padding-bottom: 2px;
+	}
+
+	.active {
+		background-color: #444141;
+		border-radius: 20px;
+		color: white;
+	}
+
+	.amt-summary {
+		text-align: center;
+		height: 35%;
+		letter-spacing: 2px;
+		padding-top: 25px;
+	}
+
+	.summary-title {
+		font-weight: 600;
+		font-size: 14px;
+		margin: 15px;
+	}
+
+	.total-amt {
+		font-size: 35px;
+		margin-bottom: 15px;
+	}
+
+	.amt-30 {
+		font-size: 20px;
+	}
+
+	.period {
+		text-align: center;
+		//position: absolute;
+		//bottom: 5%;
+		//right: 35%;
+	}
+	.graph-div{
+		width: 100%;
+		height: 280px;
+	}
+}
+

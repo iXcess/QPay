@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>TRANSACTION</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-slides pager="{{notSplitBillMode}}">
+		<ion-slide *ngIf="notSplitBillMode">
+			<ion-content class="scroller">
+				<div id="progress" class="progress"></div>
+
+				<!-- Creates an individual day transaction to display -->
+				<ion-item *ngFor="let entity of entities">
+					<div>
+						<p>{{entity.date}}</p>
+
+						<!-- Creates individual item to display for that day -->
+						<div (click)="toggleInfo(transaction)" *ngFor="let transaction of entity.transactions">
+							<p id="roundAmount">+ {{transaction.amount | number:'1.2-2'}}</p>
+							<div>
+								<span class="highlighted">{{transaction.type}}</span>
+								<span class="highlighted" id="totalAmount">RM {{transaction.total | number:'1.2-2'}}</span>
+							</div>
+						</div>
+					</div>
+				</ion-item>
+			</ion-content>
+		</ion-slide>
+		<ion-slide *ngIf="notSplitBillMode">
+			<div align=center style="height: 171px;" 
+				 class="vertical-center"> 
+				<ion-spinner name="crescent" duration="400" *ngIf="loading"></ion-spinner>
+				<div id="pie_div"></div>
+			</div>
+		
+			<div>
+				<div class="title"><h2>CATEGORIES</h2></div>
+				<ion-list>
+			  		<ion-item>
+				  		<p style="color: #009688">Food<span style="float: right;">30%</span></p>
+				  	</ion-item>
+				  	<ion-item>
+				  		<p style="color: #2196F3">Entertainment<span style="float: right">20%</span><p>
+				  	</ion-item>			
+				  	<ion-item>
+				  		<p style="color: #E91E63">Transport<span style="float: right">10%</span><p>
+				  	</ion-item>
+				  	<ion-item>
+				  		<p style="color: #673AB7">Grocery<span style="float: right">30%</span><p>
+				  	</ion-item>
+				  	<ion-item>
+				  		<p style="color: #FF9800">Fashion<span style="float: right">10%</span><p>
+				  	</ion-item>
+			  	</ion-list>
+			</div>
+		</ion-slide>
+	</ion-slides>
+</ion-content>
